@@ -138,7 +138,7 @@ export async function hkdf(
 		: new Uint8Array(0)
 
 	// Import the input key material
-	const importedKey = await crypto.subtle.importKey(
+	const importedKey = await crypto_1.subtle.importKey(
 		'raw',
 		inputKeyMaterial,
 		{ name: 'HKDF' },
@@ -147,7 +147,7 @@ export async function hkdf(
 	)
 
 	// Derive bits using HKDF
-	const derivedBits = await crypto.subtle.deriveBits(
+	const derivedBits = await crypto_1.subtle.deriveBits(
 		{
 			name: 'HKDF',
 			hash: 'SHA-256',
@@ -169,7 +169,7 @@ export async function derivePairingCodeKey(pairingCode: string, salt: Buffer): P
 	const saltBuffer = salt instanceof Uint8Array ? salt : new Uint8Array(salt)
 
 	// Import the pairing code as key material
-	const keyMaterial = await crypto.subtle.importKey(
+	const keyMaterial = await crypto_1.subtle.importKey(
 		'raw',
 		pairingCodeBuffer,
 		{ name: 'PBKDF2' },
@@ -179,7 +179,7 @@ export async function derivePairingCodeKey(pairingCode: string, salt: Buffer): P
 
 	// Derive bits using PBKDF2 with the same parameters
 	// 2 << 16 = 131,072 iterations
-	const derivedBits = await crypto.subtle.deriveBits(
+	const derivedBits = await crypto_1.subtle.deriveBits(
 		{
 			name: 'PBKDF2',
 			salt: saltBuffer,
