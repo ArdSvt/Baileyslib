@@ -486,6 +486,7 @@ export const makeSocket = (config: SocketConfig) => {
         authState.creds.pairingCode = pairKey.toUpperCase()
         } else {
 		authState.creds.pairingCode = bytesToCrockford(randomBytes(5))
+    }
 		authState.creds.me = {
 			id: jidEncode(phoneNumber, 's.whatsapp.net'),
 			name: '~'
