@@ -539,7 +539,6 @@ export const makeSocket = (config: SocketConfig) => {
 				}
 			]
 		})
-		}
 		return authState.creds.pairingCode
 	}
 
